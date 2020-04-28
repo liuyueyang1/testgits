@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.TbPersonMapper">
+
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.itheima.entity.TbPerson">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="age" property="age" />
+        <result column="sex" property="sex" />
+        <result column="card_id" property="cardId" />
+        <!--<collection property="ordersList" ofType="com.itheima.entity.TbOrders">-->
+            <!--<id column="orders_id" property="id"></id>-->
+            <!--<result column="number" property="number"></result>-->
+            <!--<result column="user_id" property="userId"></result>-->
+        <!--</collection>-->
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, age, sex, card_id
+    </sql>
+    <select id="withOrders" parameterType="integer" resultType="com.itheima.entity.TbPerson">
+          select *
+          from tb_person p
+          left join tb_orders o  ON p.id =o.user_id
+          where p.id=#{id}
+
+    </select>
+    <select id="findPeopleWithOrders" parameterType="integer" resultMap="BaseResultMap">
+            select p.*,o.id as orders_id ,o.number,o.user_id
+            from  tb_person p ,tb_orders o
+            where p.id=o.user_id and p.id=#{id}
+    </select>
+    <select id="findAll" resultMap="BaseResultMap">
+        select  * from tb_person
+    </select>
+
+</mapper>

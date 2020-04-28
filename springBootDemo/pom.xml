@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.itheima</groupId>
+  <artifactId>springBootDemo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>2.2.4.RELEASE</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <!--mvc-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>2.2.4.RELEASE</version>
+    </dependency>
+    <!--&lt;!&ndash;jstl&ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>jstl</groupId>-->
+      <!--<artifactId>jstl</artifactId>-->
+      <!--<version>1.2</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>javax.servlet</groupId>-->
+      <!--<artifactId>javax.servlet-api</artifactId>-->
+      <!--<version>4.0.1</version>-->
+    <!--</dependency>-->
+    <!--热启动-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+    </dependency>
+    <!--junit测试-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+    <!--mybatis-->
+      <!--<dependency>-->
+          <!--<groupId>org.mybatis.spring.boot</groupId>-->
+          <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
+          <!--<version>2.0.1</version>-->
+          <!--<scope>compile</scope>-->
+      <!--</dependency>-->
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatisplus-spring-boot-starter</artifactId>
+      <version>1.0.5</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus</artifactId>
+      <version>2.3</version>
+    </dependency>
+    <!--代码生成器-->
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity-engine-core</artifactId>
+      <version>2.0</version>
+    </dependency>
+
+      <!--日志信息-->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.7.7</version>
+      </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.7</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+    <!--mysql-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+     <!--tomcat    web开发使用-->
+    <dependency>
+    <groupId>org.apache.tomcat.embed</groupId>
+    <artifactId>tomcat-embed-jasper</artifactId>
+      <version>9.0.30</version>
+      <scope>compile</scope>
+  </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <!--这里写上main方法所在类的路径-->
+        <configuration>
+          <!--com.kismet.p2p.APPConfig即mainClass-->
+          <mainClass>com.itheima.MyspringBootApplication</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <!--src/main/resources ：文件资源路径-->
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+  </build>
+</project>
