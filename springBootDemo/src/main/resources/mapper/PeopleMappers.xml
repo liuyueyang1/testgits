@@ -8,7 +8,7 @@
         <result column="sex" property="sex" />
         <result column="hobby" property="hobby" />
 
-    </resultMap>00000000000000
+    </resultMap>
 
     <select id="findAll" resultMap="BaseMapper">
           select * from people
@@ -16,7 +16,7 @@
     <insert id="insert" parameterType="com.itheima.entity.People">
         insert into people(username,password,sex,hobby)values (#{username},#{password},#{sex},#{hobby})
     </insert>
-
+<!--这是注释-->
     <select id="findOne" parameterType="com.itheima.entity.People" resultMap="BaseMapper">
 
           select  * from people
